@@ -1,0 +1,245 @@
+# NetBox Operator
+
+**Disclaimer:** This project is currently under development and may change rapidly, including breaking changes. Use with caution in production environments.
+
+NetBox Operator extends the Kubernetes API by allowing users to manage NetBox resources – such as IP addresses, prefixes, L2VPNs and ASNs – directly through Kubernetes. This integration brings Kubernetes-native features like reconciliation, ensuring that network configurations are maintained automatically, thereby improving both efficiency and reliability.
+
+## The Claim Model
+The NetBox Operator implements a "Claim Model" which is also used in the Kubernetes PersistentVolumeClaims (PVCs).
+In this case, instead of disk storage, NetBox Operator dynamically allocates network resources (Prefixes, IP Addresses, and ASNs) based on claims submitted via custom resources.
+
+### Purpose
+This model ensures a declarative management of IP addressing, subnet allocation, and ASN assignment, with full NetBox integration.
+The users will create claims (PrefixClaims, IPAddressClaims & AsnClaims), and the NetBox Operator will resolve them into actual Prefixes, IPAddresses and Asns within a designated parent resource.
+
+![Figure 1: NetBox Operator High-Level Architecture](docs/netbox-operator-high-level-architecture.drawio.svg)
+
+# Getting Started
+
+## Prerequisites
+
+- go version v1.25.1+
+- docker version 17.03+
+- kubectl version v1.11.3+
+- Access to a Kubernetes v1.11.3+ cluster
+- kind
+- docker cli
+
+## Installation methods
+
+There are several ways to install NetBox Operator on your Cluster:
+
+- NetBox Operator Helm Chart. More information: <https://github.com/netbox-community/netbox-chart/>
+- Manifests in <config/default> of this repo. Make sure to first set the correct image using `kustomize edit set image controller=<correctimage>`. Images can be found on the Releases page on GitHub
+- The Makefile targets in this repository.
+- For debugging and developing, please read further below.
+
+# How to use NetBox Operator
+
+## Running both NetBox Operator and NetBox on a local kind cluster
+
+> **Note:** This requires Docker BuildKit.
+
+> **Note:** There is currently a bug where if Docker uses containerd for pulling and storing images, kind fails to load the image into the cluster ([GitHub Issue](https://github.com/kubernetes-sigs/kind/issues/3795)).
+To resolve this, temporarily disable this option in the Docker settings: "General > Use containerd for pulling and storing images"
+
+- Create kind cluster with a NetBox deployment: `make create-kind`
+- Deploy the NetBox Operator on the local kind cluster: `make deploy-kind` (In case you're using podman use `CONTAINER_TOOL=podman make deploy-kind`)
+
+To optionally access the NetBox UI:
+
+- Port-forward NetBox: `kubectl port-forward deploy/netbox 8080:8080 -n default`
+- Open <http://localhost:8080> in your favorite browser and log in with the username `admin` and password `admin`, you will be able to access the local NetBox instance running in the kind cluster.
+
+## Testing NetBox Operator using samples
+
+In the folder `config/samples/` you can find example manifests to create IpAddress, IpAddressClaim, Prefix, PrefixClaim, L2VPN, L2VPNClaim, Asn, and AsnClaim resources. Apply them to the cluster with `kubectl apply -f <file-name>` and use your favorite Kubernetes tools to display.
+
+Example of assigning a Prefix using PrefixClaim:
+
+![Figure 2: PrefixClaim example with a NetBox and NetBox Operator instance deployed on the same cluster](docs/prefixclaim-sample-with-netbox-running-in-cluster.drawio.svg)
+
+1. Apply a PrefixClaim: `kubectl apply -f config/samples/netbox_v1_prefixclaim.yaml`
+2. Wait for ready condition: `kubectl wait prefix prefixclaim-sample --for=condition=Ready`
+3. List PrefixClaim and Prefix resources: `kubectl get pxc,px`
+4. In the prefix status fields you’ll be able to see the netbox URL of the resource. Login with the default `admin`/`admin` credentials to access the NetBox resources.
+
+Key information can be found in the yaml formatted output of these resources, as well as in the events and Operator logs.
+
+To test at scale, you can use yq to patch the Kubernetes manifests. The following is an example to create 100 IpAddressClaims based on the sample yaml file:
+
+```bash
+for i in {001..100}; do
+  name="ipc-${i}" yq e '.metadata.name=strenv(name)' config/samples/netbox_v1_ipaddressclaim.yaml | kubectl apply -f -
+done
+```
+
+## Running the tests locally
+
+- Unit tests: `make test` runs the tests in `pkg/` with mocked NetBox interfaces. No cluster required.
+- Integration tests: `make integration-test` runs the controller tests in `internal/controller/` against envtest (a local API server, no NetBox).
+- End-to-end tests: `make test-e2e` runs the [chainsaw] tests in `tests/e2e/` against the cluster in your current kube context.
+
+[chainsaw]: https://kyverno.github.io/chainsaw/
+
+The e2e tests expect a Kubernetes cluster with NetBox and the NetBox Operator already deployed and wired up, and they rely on the test data loaded into NetBox at deployment time. `make test-e2e` only re-runs the tests against whatever is currently deployed, so it is the fast loop while writing tests, but it will fail if a previous run has already consumed resources in NetBox.
+
+To get a clean state, use one of the NetBox version matrix targets:
+
+```sh
+make test-e2e-3.7.8
+make test-e2e-4.0.11
+make test-e2e-4.1.10
+make test-e2e-4.4.9
+```
+
+Each of these reuses the existing kind cluster (or creates it if missing), reinstalls NetBox at the given version with fresh test data, redeploys the operator, and then runs the e2e tests.
+
+# ASN Management
+
+NetBox Operator supports managing [ASNs (Autonomous System Numbers)](https://github.com/netbox-community/netbox/blob/main/docs/models/ipam/asn.md) through two custom resources:
+
+- **Asn**: Represents a single ASN in NetBox. Similar to an IpAddress, it manages the lifecycle of a specific ASN value.
+- **AsnClaim**: Claims an available ASN from a NetBox ASN Range. Similar to IpAddressClaim, it creates a child Asn CR with the assigned value.
+
+## Example: Claiming an ASN
+
+1. Apply an AsnClaim: `kubectl apply -f config/samples/netbox_v1_asnclaim.yaml`
+2. Wait for ready condition: `kubectl wait asnclaim asnclaim-sample --for=condition=Ready`
+3. List AsnClaim and Asn resources: `kubectl get asnc,asn`
+
+The `parentAsnRange` field in the AsnClaim spec must match the **name** of an existing ASN Range in NetBox. The operator will claim an available ASN from that range.
+
+## RIR assignment
+
+NetBox requires every ASN to belong to a RIR (Regional Internet Registry).
+
+- On an **Asn**, `rir` is required and must match the **name** of an existing RIR in NetBox.
+- On an **AsnClaim**, `rir` is optional. When omitted, the RIR of the parent ASN Range is inherited and written to the generated Asn CR.
+
+`rir` is mutable on both resources and is not part of the restoration hash, so changing it never causes an ASN to be re-claimed. When the field changes, the operator updates the ASN in NetBox.
+
+Restoration (via `preserveInNetbox: true`) works the same way as for IP Addresses and Prefixes — the ASN is preserved in NetBox upon CR deletion and can be reclaimed when the AsnClaim is re-created.
+
+# L2VPN Management
+
+NetBox Operator supports managing [L2VPNs](https://github.com/netbox-community/netbox/blob/main/docs/models/vpn/l2vpn.md) (Layer 2 VPNs, e.g. to track VXLAN VNIs) through two custom resources:
+
+- **L2VPN**: Represents a single L2VPN in NetBox. Similar to an IpAddress, it manages the lifecycle of a specific L2VPN (`type`, `identifier`) using the CR's Kubernetes object name as the NetBox L2VPN name.
+- **L2VPNClaim**: Claims a VNI for an L2VPN from an `identifierRangeStart`/`identifierRangeEnd` range. Set both to the same value to claim an exact VNI. Similar to IpAddressClaim, it creates a child L2VPN CR with the assigned identifier.
+
+Only VXLAN-based L2VPN types (`vxlan`, `vxlan-evpn`) are supported, since those are the ones that carry a VNI (0-16777215) in their identifier.
+
+## Example: Claiming an L2VPN
+
+1. Apply an L2VPNClaim: `kubectl apply -f config/samples/netbox_v1_l2vpnclaim.yaml`
+2. Wait for ready condition: `kubectl wait l2vpnclaim l2vpnclaim-sample --for=condition=Ready`
+3. List L2VPNClaim and L2VPN resources: `kubectl get l2vc,l2v`
+
+`identifierRangeStart` and `identifierRangeEnd` are both required on `L2VPNClaim`; set them to the same value for an exact VNI, or a wider range to let the operator pick the next free VNI in NetBox from that range.
+
+Restoration (via `preserveInNetbox: true`) works the same way as for IP Addresses and Prefixes — the L2VPN is preserved in NetBox upon CR deletion and can be reclaimed when the L2VPNClaim is re-created.
+
+# Mixed usage of Prefixes
+
+Note that NetBox does handle the Address management of Prefixes separately from IP Ranges and IP Addresses. This is important to know when you plan to use the same NetBox Prefix as a parentPrefix for your IpAddressClaims, IpRangeClaims and PrefixClaims.
+
+Example:
+
+- Assume you use an existing empty NetBox Prefix "192.168.0.0/24" as the `.spec.parentPrefix` for your PrefixClaims, IpAddressClaims and IpRangeClaims.
+- You create a PrefixClaim with `.spec.prefixLength` of `/25`, NetBox Operator will assign "192.168.0.0/25"
+- You create a IpAddressClaim, NetBox Operator will assign "192.168.0.1/32". Important: NetBox ignores the Prefix in that case and will not return "192.168.0.129" as the first available IP!
+- You create a IpAddressClaim with `.spec.size` of `2`, NetBox Operator will assign "192.168.0.2/32" to "192.168.0.3/32". Important: NetBox ignores the Prefix in that case and will not return "192.168.0.129" as the first available IP!
+
+
+This means that you need to plan your automation carefully. As a rule of thumb:
+- If you plan mixed use of the same parentPrefix for both single IPs (/32s) as well as Prefixes (non /32s), use PrefixClaims for everything and avoid using IpRangeClaims and IpAddressClaims.
+- If you are in full control of a Prefix and you know it will only be used for assigning IP Addresses and IP Ranges, you can use IpAddressClaims and IpRangeClaims.
+- If you don't know what the parentPrefix is used for, avoid using IpAddressClaims and IpRangeClaims.
+
+The same applies if you use parentPrefixSelector with PrefixClaims. The above example is IPv4 based but will be the same with IPv6 equivalents.
+
+# Restoration from NetBox
+
+In the case that the cluster containing the NetBox Custom Resources managed by this NetBox Operator is not backed up (e.g. using Velero), we need to be able to restore some information from NetBox. This includes two mechanisms implemented in this NetBox Operator:
+
+- `IpAddressClaim`, `PrefixClaim`, and `L2VPNClaim` have the flag `preserveInNetbox` in their spec. If set to true, the NetBox Operator will not delete the assigned IP Address/Prefix/L2VPN in NetBox when the Kubernetes Custom Resource is deleted
+- In NetBox, a custom field (by default `netboxOperatorRestorationHash`) is used to identify an IP Address/Prefix/L2VPN based on data from the IpAddressClaim/PrefixClaim/L2VPNClaim resource
+
+Use Cases for this Restoration:
+
+- Disaster Recovery: In case the cluster is lost, IP Addresses can be restored with the IPAddressClaim only
+- Sticky IPs/VNIs: Some services do not handle changes to IPs or VNIs well. This ensures the IP/Prefix/VNI assigned to a Custom Resource is always the same.
+
+# `ParentPrefixSelector` in `PrefixClaim`
+
+Please read [ParentPrefixSelector guide] for more information!
+
+[ParentPrefixSelector guide]: ./ParentPrefixSelectorGuide.md
+
+# Project Distribution
+
+Following are the steps to build the installer and distribute this project to users.
+
+1. Build the installer for the image built and published in the registry:
+
+```sh
+make build-installer IMG=<some-registry>/netbox-operator:tag
+```
+
+> **NOTE**: The makefile target mentioned above generates an 'install.yaml'
+file in the dist directory. This file contains all the resources built
+with Kustomize, which are necessary to install this project without
+its dependencies.
+
+2. Using the installer
+
+Users can just run `kubectl apply -f <URL for YAML BUNDLE>` to install the project, i.e.:
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/<org>/netbox-operator/<tag or branch>/dist/install.yaml
+```
+
+# Monitoring
+
+When the operator is deployed with the default kustomization (located at config/default/) the metrics endpoint is already exposed and provides the [default kubebuilder metrics].
+
+[default kubebuilder metrics]: https://book.kubebuilder.io/reference/metrics-reference.
+
+For the monitoring of the state of the CRs reconciled by the operator [kube state metrics] can be used, check the kube-state-metrics documentation for instructions on configuring it to collect metrics from custom resources.
+
+[kube state metrics]: https://github.com/kubernetes/kube-state-metrics
+
+# FAQ
+
+## What is the difference between `.spec.customFields` and `.spec.parentPrefixSelector`?
+
+`.spec.customFields` are the NetBox Custom Fields assigned to the resource in NetBox.
+`.spec.parentPrefixSelector` is used by a Claim Controller (e.g. the controller of PrefixClaim) to find a suitable Prefix to get e.g. a Prefix from.
+
+## What is the difference between `.spec.tenant` and `.spec.parentPrefixSelector.tenant`?
+
+`.spec.tenant` is the tenant that is assigned to the resource in NetBox.
+`.spec.parentPrefixSelector.tenant` is used by a Claim Controller (e.g. the controller of PrefixClaim) to find a suitable Prefix to get e.g. a Prefix from.
+
+# Contributing
+
+We cordially invite collaboration from the community to enhance the quality and functionality of this project. Whether you are addressing bugs, introducing new features, refining documentation, or assisting with items on our to-do list, your contributions are highly valued and greatly appreciated. Please take a look at [Contribution guide] for more details.
+
+[Contribution guide]: ./CONTRIBUTING.md
+
+# License
+
+Copyright 2024 Swisscom (Schweiz) AG.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

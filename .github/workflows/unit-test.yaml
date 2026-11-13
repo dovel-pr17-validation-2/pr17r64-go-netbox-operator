@@ -1,0 +1,27 @@
+---
+name: Unit tests
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  workflow_run:
+    workflows: ["Release"]
+    types: [completed]
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name != 'workflow_run' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: "go.mod"
+      - name: tests
+        run: |-
+          make test

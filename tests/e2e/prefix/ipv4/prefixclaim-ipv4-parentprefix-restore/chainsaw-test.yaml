@@ -1,0 +1,228 @@
+---
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: prefixclaim-ipv4-parentprefix-restore
+  annotations:
+    description: Tests if creation, deletion and re-creation is successfully restoring the same Prefix using parentPrefix
+spec:
+  steps:
+    - name: Apply CR 1
+      try:
+        - apply:
+            file: netbox_v1_prefixclaim_1.yaml
+    - name: Check CR 1 spec and status
+      try:
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: PrefixClaim
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-1
+              spec:
+                comments: your comments
+                description: some description
+                parentPrefix: 2.0.3.0/24
+                prefixLength: /28
+                preserveInNetbox: true
+                site: MY_SITE
+                tenant: MY_TENANT
+              status:
+                parentPrefix: 2.0.3.0/24
+                prefix: 2.0.3.0/28
+                prefixName: prefixclaim-ipv4-parentprefix-restore-1
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: Prefix
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-1
+              spec:
+                comments: your comments
+                description: some description
+                prefix: 2.0.3.0/28
+                preserveInNetbox: true
+                site: MY_SITE
+                tenant: MY_TENANT
+                customFields:
+                  netboxOperatorRestorationHash: 00b8772de73cdac083b0732d5bb85ab4f0caa16c
+    - name: Delete CR 1
+      description: delete CR 1 (we only delete CR 1, so if the restoration failed to claim, it will take the next available prefix which will be wrong)
+      try:
+        - delete:
+            ref:
+              apiVersion: netbox.dev/v1
+              kind: PrefixClaim
+              name: prefixclaim-ipv4-parentprefix-restore-1
+    - name: Apply CR 2
+      try:
+        - apply:
+            file: netbox_v1_prefixclaim_2.yaml
+    - name: Check CR 2 spec and status
+      try:
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: PrefixClaim
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-2
+              spec:
+                comments: your comments
+                description: some description
+                parentPrefix: 2.0.3.0/24
+                prefixLength: /28
+                preserveInNetbox: true
+                site: MY_SITE
+                tenant: MY_TENANT
+              status:
+                parentPrefix: 2.0.3.0/24
+                prefix: 2.0.3.16/28
+                prefixName: prefixclaim-ipv4-parentprefix-restore-2
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: Prefix
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-2
+              spec:
+                comments: your comments
+                description: some description
+                prefix: 2.0.3.16/28
+                preserveInNetbox: true
+                site: MY_SITE
+                tenant: MY_TENANT
+    - name: Apply CR 1 for the second time again and check if restored
+      try:
+        - apply:
+            file: netbox_v1_prefixclaim_1.yaml
+    - name: Check CR 1 spec and status
+      try:
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: PrefixClaim
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-1
+              spec:
+                comments: your comments
+                description: some description
+                parentPrefix: 2.0.3.0/24
+                prefixLength: /28
+                preserveInNetbox: true
+                site: MY_SITE
+                tenant: MY_TENANT
+              status:
+                parentPrefix: 2.0.3.0/24
+                prefix: 2.0.3.0/28
+                prefixName: prefixclaim-ipv4-parentprefix-restore-1
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: Prefix
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-1
+              spec:
+                comments: your comments
+                description: some description
+                prefix: 2.0.3.0/28
+                preserveInNetbox: true
+                site: MY_SITE
+                tenant: MY_TENANT
+                customFields:
+                  netboxOperatorRestorationHash: 00b8772de73cdac083b0732d5bb85ab4f0caa16c
+    - name: Apply Prerequisite Prefix for CR 3
+      try:
+        - apply:
+            file: netbox_v1_prefix_3-wrong-length.yaml
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: Prefix
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-3-prefix-with-wrong-length
+              spec:
+                comments: your comments
+                customFields:
+                  netboxOperatorRestorationHash: 1309280893365bfd94710d148379a6f501a46afe
+                description: some description
+                prefix: 2.0.3.224/27
+                site: MY_SITE
+                tenant: MY_TENANT
+              status:
+                (conditions[?type == 'Ready']):
+                  - status: 'True'
+    - name: Apply CR 3
+      try:
+        - apply:
+            file: netbox_v1_prefixclaim_3.yaml
+    - name: Check CR 3 spec and status, verify mismatched length doesn't assign wrong prefix
+      try:
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: PrefixClaim
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-3
+              spec:
+                tenant: "MY_TENANT"
+                site: "MY_SITE"
+                description: "some description"
+                comments: "your comments"
+                preserveInNetbox: false
+                parentPrefix: "2.0.3.0/24"
+                prefixLength: "/28"
+              status:
+                (conditions[?type == 'PrefixAssigned']):
+                  - reason: PrefixCRNotCreated
+                    message: 'Failed to assign prefix, prefix CR creation skipped: no prefix found in NetBox with restoration hash 1309280893365bfd94710d148379a6f501a46afe and prefix length /28'
+                    status: 'False'
+                (conditions[?type == 'Ready']):
+                  - status: 'False'
+    - name: Set preserveInNetbox to false
+      description: Set preserveInNetbox to false to clean up the NetBox test instance
+      try:
+        - patch:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: PrefixClaim
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-1
+              spec:
+                preserveInNetbox: false
+        - patch:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: PrefixClaim
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-2
+              spec:
+                preserveInNetbox: false
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: Prefix
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-1
+              status:
+                (conditions[?type == 'Ready']):
+                  - observedGeneration: 2
+                    status: 'True'
+        - assert:
+            resource:
+              apiVersion: netbox.dev/v1
+              kind: Prefix
+              metadata:
+                name: prefixclaim-ipv4-parentprefix-restore-2
+              status:
+                (conditions[?type == 'Ready']):
+                  - observedGeneration: 2
+                    status: 'True'
+    - name: Cleanup events
+      description: Events cleanup required to fix issues with failing tests that assert the wrong Error resource
+      cleanup:
+        - script:
+            content: |-
+              kubectl delete events --field-selector involvedObject.name=prefixclaim-ipv4-parentprefix-restore-1 -n $NAMESPACE
+              kubectl delete events --field-selector involvedObject.name=prefixclaim-ipv4-parentprefix-restore-2 -n $NAMESPACE
+              kubectl delete events --field-selector involvedObject.name=prefixclaim-ipv4-parentprefix-restore-3 -n $NAMESPACE
+              kubectl delete events --field-selector involvedObject.name=prefixclaim-ipv4-parentprefix-restore-3-prefix-with-wrong-length -n $NAMESPACE

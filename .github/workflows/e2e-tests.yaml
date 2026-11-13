@@ -1,0 +1,80 @@
+---
+# Modified from https://github.com/prometheus-operator/prometheus-operator/blob/main/.github/workflows/e2e-feature-gated.yaml
+name: e2e-tests
+permissions:
+  contents: read
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  workflow_run:
+    workflows: ["Release"]
+    types: [completed]
+    branches: [main]
+  pull_request:
+env:
+  NETBOX_HOST: demo.netbox.dev
+  AUTH_TOKEN: 0123456789abcdef0123456789abcdef01234567
+  POD_NAMESPACE: default
+  HTTPS_ENABLE: true
+  NETBOX_RESTORATION_HASH_FIELD_NAME: netboxOperatorRestorationHash
+jobs:
+  e2e-tests-3-7-8:
+    name: Against netbox version 3.7.8
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name != 'workflow_run' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: "go.mod"
+      - name: Import environment variables from file
+        run: |
+          cat ".github/env" >> "$GITHUB_ENV"
+      - name: Run e2e tests
+        run: |
+          make test-e2e-3.7.8
+  e2e-tests-4-0-11:
+    name: Against netbox version 4.0.11
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: "go.mod"
+      - name: Import environment variables from file
+        run: |
+          cat ".github/env" >> "$GITHUB_ENV"
+      - name: Run e2e tests
+        run: |
+          make test-e2e-4.0.11
+  e2e-tests-4-1-10:
+    name: Against netbox version 4.1.10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: "go.mod"
+      - name: Import environment variables from file
+        run: |
+          cat ".github/env" >> "$GITHUB_ENV"
+      - name: Run e2e tests
+        run: |-
+          make test-e2e-4.1.10
+  e2e-tests-4-4-9:
+    name: Against netbox version 4.4.9
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: "go.mod"
+      - name: Import environment variables from file
+        run: |
+          cat ".github/env" >> "$GITHUB_ENV"
+      - name: Run e2e tests
+        run: |-
+          make test-e2e-4.4.9

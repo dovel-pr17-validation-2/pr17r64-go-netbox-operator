@@ -1,0 +1,79 @@
+---
+name: Static analysis
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  workflow_run:
+    workflows: ["Release"]
+    types: [completed]
+    branches: [main]
+  pull_request:
+permissions: read-all
+jobs:
+  go-and-crds:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name != 'workflow_run' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: "go.mod"
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@ba0d7d2ec06a0ea1cb5fa41b2e4a3ab91d21278a # v9.3.0
+        with:
+          version: v2.11.2
+          args: --config tools/.golangci.yaml
+      - run: |
+          set -euo pipefail
+
+          make vet
+      - run: |
+          set -euo pipefail
+
+          make lint
+      - run: |
+          set -euo pipefail
+
+          make fmt
+
+          DIFF=$(git status --porcelain)
+
+          if [ -n "$DIFF" ]; then
+            echo "These files were modified:"
+            echo
+            echo "$DIFF"
+            echo
+            exit 1
+          fi
+      - run: |
+          set -euo pipefail
+
+          DIFF=$(git status --porcelain)
+
+          make generate manifests
+
+          if [ -n "$DIFF" ]; then
+          echo "These files were modified:"
+          echo
+          echo "$DIFF"
+          echo
+          echo "Please run make generate manifests and commit the changes."
+          exit 1
+          fi
+  codespell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Run codespell
+        uses: codespell-project/actions-codespell@v2
+        with:
+          skip: "*.svg,go.sum"
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: "Yamllint"
+        uses: karancode/yamllint-github-action@master

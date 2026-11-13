@@ -1,0 +1,208 @@
+/*
+Copyright 2024 Swisscom (Schweiz) AG.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+package controller
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"strings"
+	"time"
+
+	apismeta "k8s.io/apimachinery/pkg/api/meta"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/apimachinery/pkg/runtime/schema"
+	"k8s.io/client-go/tools/record"
+	ctrl "sigs.k8s.io/controller-runtime"
+	"sigs.k8s.io/controller-runtime/pkg/client"
+	"sigs.k8s.io/controller-runtime/pkg/client/apiutil"
+	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
+	"sigs.k8s.io/controller-runtime/pkg/log"
+)
+
+// DomainError wraps an error that should update status conditions.
+// Use NewDomainError to create errors that should be reflected in status.
+type DomainError struct {
+	err error
+}
+
+func (e *DomainError) Error() string {
+	return e.err.Error()
+}
+
+func (e *DomainError) Unwrap() error {
+	return e.err
+}
+
+// NewDomainError creates an error that will update the resource status condition.
+// Use this for errors that should be visible in kubectl describe output.
+func NewDomainError(format string, args ...interface{}) error {
+	return &DomainError{err: fmt.Errorf(format, args...)}
+}
+
+// IgnoreDomainError strips DomainErrors from err (they have already been
+// recorded in the status condition) while preserving any non-domain errors
+// (e.g. a failed status patch) so they are returned to controller-runtime.
+func IgnoreDomainError(reconcileRes ctrl.Result, err error) (ctrl.Result, error) {
+	if err == nil {
+		return reconcileRes, nil
+	}
+
+	remaining := excludeDomainErrors(err)
+	if remaining != nil {
+		return ctrl.Result{}, remaining
+	}
+
+	if reconcileRes.RequeueAfter > 0 {
+		return ctrl.Result{RequeueAfter: reconcileRes.RequeueAfter}, nil
+	}
+	return ctrl.Result{Requeue: true}, nil
+}
+
+// excludeDomainErrors unwraps a (possibly joined) error and returns only the
+// non-DomainError parts. Returns nil when every leaf is a DomainError.
+func excludeDomainErrors(err error) error {
+	if err == nil {
+		return nil
+	}
+
+	// If err directly wraps multiple errors (errors.Join), filter each one.
+	if joined, ok := err.(interface{ Unwrap() []error }); ok {
+		var kept []error
+		for _, e := range joined.Unwrap() {
+			if r := excludeDomainErrors(e); r != nil {
+				kept = append(kept, r)
+			}
+		}
+		return errors.Join(kept...)
+	}
+
+	var domainErr *DomainError
+	if errors.As(err, &domainErr) {
+		return nil
+	}
+	return err
+}
+
+func convertCIDRToLeaseLockName(cidr string) string {
+	return strings.ReplaceAll(strings.ReplaceAll(cidr, "/", "-"), ":", "-")
+}
+
+// lockAcquireTimeout limits how long TryLock can block waiting for a lease.
+// The leaselocker's default LeaseDuration is 60s, meaning TryLock would block
+// for up to 61s on a contested or stale lease. This timeout limits the blocking
+// to prevent a single failing claim from starving the entire controller's work queue.
+// On success, even if the timeout fires after the critical section starts,
+// the lease remains valid for the remaining LeaseDuration (~50s) — the critical
+// section is still protected.
+const lockAcquireTimeout = 10 * time.Second
+
+func generateManagedCustomFieldsAnnotation(customFields map[string]string) (string, error) {
+	if customFields == nil {
+		customFields = make(map[string]string)
+	}
+
+	metadataJSON, err := json.Marshal(customFields)
+	if err != nil {
+		return "", fmt.Errorf("failed to marshal custom fields to JSON: %w", err)
+	}
+
+	return string(metadataJSON), nil
+}
+
+func removeFinalizer(ctx context.Context, c client.Client, o client.Object, finalizerName string) error {
+	logger := log.FromContext(ctx)
+	if controllerutil.ContainsFinalizer(o, finalizerName) {
+		logger.V(4).Info("removing the finalizer")
+		controllerutil.RemoveFinalizer(o, finalizerName)
+		if err := c.Update(ctx, o); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func addFinalizer(ctx context.Context, c client.Client, o client.Object, finalizerName string) error {
+	logger := log.FromContext(ctx)
+	if !controllerutil.ContainsFinalizer(o, finalizerName) {
+		logger.V(4).Info("add the finalizer")
+		controllerutil.AddFinalizer(o, finalizerName)
+		if err := c.Update(ctx, o); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+// isOwnedByClaim reports whether the object is controlled by the claim of its own
+// kind, the only controller that will recreate it after deletion. The owner's API
+// version is intentionally not compared, only its group.
+func isOwnedByClaim(o client.Object, scheme *runtime.Scheme) bool {
+	owner := metav1.GetControllerOf(o)
+	if owner == nil {
+		return false
+	}
+
+	// the typed client clears TypeMeta, so the kind comes from the scheme
+	gvk, err := apiutil.GVKForObject(o, scheme)
+	if err != nil {
+		return false
+	}
+
+	ownerGV, err := schema.ParseGroupVersion(owner.APIVersion)
+	if err != nil {
+		return false
+	}
+
+	return ownerGV.Group == gvk.Group && owner.Kind == gvk.Kind+"Claim"
+}
+
+type EventStatusRecorder struct {
+	rec record.EventRecorder
+}
+
+func NewEventStatusRecorder(rec record.EventRecorder) *EventStatusRecorder {
+	return &EventStatusRecorder{
+		rec: rec,
+	}
+}
+
+func (esr *EventStatusRecorder) Report(ctx context.Context, o ObjectWithConditions, condition metav1.Condition, eventType string, errExt error, additionalMessages ...string) {
+	logger := log.FromContext(ctx)
+
+	if errExt != nil {
+		condition.Message = condition.Message + ": " + errExt.Error()
+		logger.Error(errExt, condition.Message)
+	}
+
+	condition.Message = strings.Join(append([]string{condition.Message}, additionalMessages...), ", ")
+	condition.ObservedGeneration = o.GetGeneration()
+
+	conditionChanged := apismeta.SetStatusCondition(o.Conditions(), condition)
+	if conditionChanged {
+		esr.rec.Event(o, eventType, condition.Reason, condition.Message)
+		logger.Info("Condition "+condition.Type+" changed to "+string(condition.Status), "Reason", condition.Reason, "Message", condition.Message)
+	}
+}
+
+func (esr *EventStatusRecorder) Recorder() record.EventRecorder {
+	return esr.rec
+}

@@ -1,0 +1,1562 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [v0.2.78] - 2026-11-09
+
+<!-- Release notes generated using configuration in .github/release.yml at 47e5bcc10c1c39ccf5a67d25432b854b27f31f98 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 7 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/666
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.77...v0.2.78
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.78)
+
+---
+
+## [v0.2.77] - 2026-11-02
+
+<!-- Release notes generated using configuration in .github/release.yml at 7a47ee6b1e765a7a4e5bf277f776b02442a4a48a -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 17 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/664
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.76...v0.2.77
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.77)
+
+---
+
+## [v0.2.76] - 2026-10-26
+
+<!-- Release notes generated using configuration in .github/release.yml at 638fef08c88223a098e3f43ef4c359af483754b5 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 4 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/659
+* Build(deps): bump golang from 1.27.2 to 1.27.3 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/658
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.75...v0.2.76
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.76)
+
+---
+
+## [v0.2.75] - 2026-10-19
+
+<!-- Release notes generated using configuration in .github/release.yml at 841474871a6ce8fba8eb70b167ccc9ba1b66a8e6 -->
+
+## What's Changed
+### Contributions
+* remove flaky condition by @bruelea in https://github.com/netbox-community/netbox-operator/pull/652
+* bugfix improve stability of forced ipv4 path by @bruelea in https://github.com/netbox-community/netbox-operator/pull/653
+* Build(deps): bump the go-dependencies group with 13 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/656
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.74...v0.2.75
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.75)
+
+---
+
+## [v0.2.74] - 2026-10-12
+
+<!-- Release notes generated using configuration in .github/release.yml at f0f11cd88cf055b277c6f1c0b360a521d842b1b1 -->
+
+## What's Changed
+### Contributions
+* Make the kind e2e environment idempotent and stop NetBox being killed during startup by @jstudler in https://github.com/netbox-community/netbox-operator/pull/632
+* De-flake the parentprefixselector-sorting e2e test by @jstudler in https://github.com/netbox-community/netbox-operator/pull/645
+* upgraded go toolchain by @ehsanmpd in https://github.com/netbox-community/netbox-operator/pull/649
+* Build(deps): bump the go-dependencies group across 1 directory with 18 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/650
+
+## New Contributors
+* @ehsanmpd made their first contribution in https://github.com/netbox-community/netbox-operator/pull/649
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.73...v0.2.74
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.74)
+
+---
+
+## [v0.2.73] - 2026-10-05
+
+<!-- Release notes generated using configuration in .github/release.yml at b50132e1a560c4a5daab2656d7d7f690247ea8f3 -->
+
+## What's Changed
+### Contributions
+* Add AsnClaim and Asn by @jstudler in https://github.com/netbox-community/netbox-operator/pull/606
+* Build(deps): bump the go-dependencies group with 9 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/643
+* Cross-controller cleanup by @jstudler in https://github.com/netbox-community/netbox-operator/pull/641
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.72...v0.2.73
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.73)
+
+---
+
+## [v0.2.72] - 2026-09-28
+
+<!-- Release notes generated using configuration in .github/release.yml at c91a5df83b6d7fdd84cc22eadd61c5ee62394efe -->
+
+## What's Changed
+### Contributions
+* Add support for L2VPN by @flynn-nrg in https://github.com/netbox-community/netbox-operator/pull/607
+* Build(deps): bump the go-dependencies group with 12 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/639
+
+## New Contributors
+* @flynn-nrg made their first contribution in https://github.com/netbox-community/netbox-operator/pull/607
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.71...v0.2.72
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.72)
+
+---
+
+## [v0.2.71] - 2026-09-21
+
+<!-- Release notes generated using configuration in .github/release.yml at ac08b91b0253a5298419726b41f4cdad54dd735f -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 6 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/635
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.70...v0.2.71
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.71)
+
+---
+
+## [v0.2.70] - 2026-09-14
+
+<!-- Release notes generated using configuration in .github/release.yml at a7a297d95715ce4b93d1fe1d887baa8b7b57a473 -->
+
+## What's Changed
+### Contributions
+* Update kind and k8s versions in e2e and integration tests by @jstudler in https://github.com/netbox-community/netbox-operator/pull/631
+* Build(deps): bump the go-dependencies group with 28 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/633
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.69...v0.2.70
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.70)
+
+---
+
+## [v0.2.69] - 2026-09-07
+
+<!-- Release notes generated using configuration in .github/release.yml at 7f80ad054dad9b54e115dea0cb199d5a318bbb35 -->
+
+## What's Changed
+### Contributions
+* reset selected parentprefix if it does not meet size criteria by @bruelea in https://github.com/netbox-community/netbox-operator/pull/626
+* request less resources for netbox installation by @bruelea in https://github.com/netbox-community/netbox-operator/pull/627
+* Build(deps): bump golang from 1.27.0 to 1.27.1 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/628
+* Build(deps): bump the go-dependencies group with 11 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/629
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.68...v0.2.69
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.69)
+
+---
+
+## [v0.2.68] - 2026-08-31
+
+<!-- Release notes generated using configuration in .github/release.yml at f51581b5d74b824be12af12d984b209eeeadeef4 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 41 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/624
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.67...v0.2.68
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.68)
+
+---
+
+## [v0.2.67] - 2026-08-24
+
+<!-- Release notes generated using configuration in .github/release.yml at a5ed7ea68d426b1ab2c8ac1626235af48ac53efa -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump golang from 1.26.6 to 1.27.0 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/620
+* CI improve Go version comparison by @alexandernorth in https://github.com/netbox-community/netbox-operator/pull/622
+* Build(deps): bump the go-dependencies group across 1 directory with 25 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/621
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.66...v0.2.67
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.67)
+
+---
+
+## [v0.2.66] - 2026-08-17
+
+<!-- Release notes generated using configuration in .github/release.yml at 9995176fc5ac54832cc40e7d7371791ab62332c0 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 11 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/616
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.65...v0.2.66
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.66)
+
+---
+
+## [v0.2.65] - 2026-08-10
+
+<!-- Release notes generated using configuration in .github/release.yml at be9ef0501ab2da1b23b4ad9eafd4d912bd1b46c4 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 11 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/612
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.64...v0.2.65
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.65)
+
+---
+
+## [v0.2.64] - 2026-08-03
+
+<!-- Release notes generated using configuration in .github/release.yml at 86126f7e722c4a32a54defcc46fa52612456f973 -->
+
+## What's Changed
+### Contributions
+* Add stale bot to auto-close inactive PRs after 180 days by @jstudler in https://github.com/netbox-community/netbox-operator/pull/604
+* Fix stale bot config by @jstudler in https://github.com/netbox-community/netbox-operator/pull/605
+* Build(deps): bump the go-dependencies group with 16 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/608
+* Build(deps): bump actions/stale from 9 to 11 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/609
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.63...v0.2.64
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.64)
+
+---
+
+## [v0.2.63] - 2026-07-27
+
+<!-- Release notes generated using configuration in .github/release.yml at e0cbcd2fa3f7cf9cbd4d4748fe290d0d3977eb46 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump github.com/go-openapi/swag/jsonname from 0.27.1 to 0.27.3 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/602
+* Build(deps): bump actions/checkout from 7.0.0 to 7.0.1 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/600
+* Build(deps): bump the go-dependencies group across 1 directory with 35 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/601
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.62...v0.2.63
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.63)
+
+---
+
+## [v0.2.62] - 2026-07-20
+
+<!-- Release notes generated using configuration in .github/release.yml at 5c4d247998ad016162fc67a5483f1a7256e574d9 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 17 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/598
+* Build(deps): bump actions/setup-go from 6.5.0 to 7.0.0 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/597
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.61...v0.2.62
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.62)
+
+---
+
+## [v0.2.61] - 2026-07-13
+
+<!-- Release notes generated using configuration in .github/release.yml at 65fe6474a096a2bedb84306fca49f0d87e5a2688 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 12 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/595
+* Build(deps): bump golang from 1.26.4 to 1.26.5 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/594
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.60...v0.2.61
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.61)
+
+---
+
+## [v0.2.60] - 2026-07-06
+
+<!-- Release notes generated using configuration in .github/release.yml at c0553ca44f20ae123fa5e0ed1619f91558485e20 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the github-actions group with 2 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/590
+* Build(deps): bump the go-dependencies group across 1 directory with 19 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/592
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.59...v0.2.60
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.60)
+
+---
+
+## [v0.2.59] - 2026-06-29
+
+<!-- Release notes generated using configuration in .github/release.yml at e8f9da9c5aafb677eb1425ed2f0bff2c6ce59d6b -->
+
+## What's Changed
+### Contributions
+* Add check for Go version mismatch by @jstudler in https://github.com/netbox-community/netbox-operator/pull/585
+* Build(deps): bump actions/setup-go from 6.4.0 to 6.5.0 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/586
+* Build(deps): bump the go-dependencies group with 7 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/587
+* Build(deps): bump github.com/swisscom/leaselocker from 0.4.20 to 0.4.21 in the go-dependencies group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/588
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.58...v0.2.59
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.59)
+
+---
+
+## [v0.2.58] - 2026-06-22
+
+<!-- Release notes generated using configuration in .github/release.yml at d7bc87893bc8ac95b86c026cbf903533b73355bd -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 5 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/583
+* Build(deps): bump actions/checkout from 6.0.3 to 7.0.0 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/582
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.57...v0.2.58
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.58)
+
+---
+
+## [v0.2.57] - 2026-06-15
+
+<!-- Release notes generated using configuration in .github/release.yml at 3ff349c1bdcd5f0c0861b19179334e0f2f2f0bd7 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 20 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/580
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.56...v0.2.57
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.57)
+
+---
+
+## [v0.2.56] - 2026-06-08
+
+<!-- Release notes generated using configuration in .github/release.yml at 1b0f3910babf288f3e1f4504db9c3e6c4cb78750 -->
+
+## What's Changed
+### Contributions
+* Add scheduled reconciliation to all controllers by @MaIT-HA in https://github.com/netbox-community/netbox-operator/pull/571
+* Build(deps): bump golang from 1.26.3 to 1.26.4 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/576
+* Build(deps): bump actions/checkout from 6.0.2 to 6.0.3 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/577
+* Build(deps): bump the go-dependencies group across 1 directory with 34 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/578
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.55...v0.2.56
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.56)
+
+---
+
+## [v0.2.55] - 2026-06-01
+
+<!-- Release notes generated using configuration in .github/release.yml at c777ffb7c464e3f49eaf9514b275112e9ca3c3c8 -->
+
+## What's Changed
+### Contributions
+* Docs/examples for demo by @bruelea in https://github.com/netbox-community/netbox-operator/pull/431
+* Fix wrongfully assigned parentPrefix that is already exhausted. by @jstudler in https://github.com/netbox-community/netbox-operator/pull/572
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.54...v0.2.55
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.55)
+
+---
+
+## [v0.2.54] - 2026-05-26
+
+<!-- Release notes generated using configuration in .github/release.yml at d60f0e578ecccf0f60add0b86e1ff0fd80596144 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 5 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/569
+* Build(deps): bump the github-actions group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/568
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.53...v0.2.54
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.54)
+
+---
+
+## [v0.2.53] - 2026-05-18
+
+<!-- Release notes generated using configuration in .github/release.yml at ce7b8b722586988750fb38a18edb7aab755e5c5a -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 13 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/566
+* handle iprange overlap error by @bruelea in https://github.com/netbox-community/netbox-operator/pull/565
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.52...v0.2.53
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.53)
+
+---
+
+## [v0.2.52] - 2026-05-11
+
+<!-- Release notes generated using configuration in .github/release.yml at af290e4584f48387b61f193cc4347317eae502c1 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump golang from 1.26.2 to 1.26.3 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/560
+* Bugfix/improve integration test stability by @bruelea in https://github.com/netbox-community/netbox-operator/pull/563
+* Build(deps): bump the go-dependencies group across 1 directory with 12 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/562
+* improve error reporting by @bruelea in https://github.com/netbox-community/netbox-operator/pull/559
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.51...v0.2.52
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.52)
+
+---
+
+## [v0.2.51] - 2026-05-06
+
+<!-- Release notes generated using configuration in .github/release.yml at dde7193443ea45fdfae8cb7cc7d3776081939068 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 18 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/557
+* Skip unnecessary netbox updates by @MaIT-HA in https://github.com/netbox-community/netbox-operator/pull/538
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.50...v0.2.51
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.51)
+
+---
+
+## [v0.2.50] - 2026-04-27
+
+<!-- Release notes generated using configuration in .github/release.yml at 765206df94f633f98a4a9e404447e846d86bdbec -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 11 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/555
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.49...v0.2.50
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.50)
+
+---
+
+## [v0.2.49] - 2026-04-20
+
+<!-- Release notes generated using configuration in .github/release.yml at d28a3f31b8adb2af1a17e90705257230cf6e4de3 -->
+
+## What's Changed
+### Contributions
+* using defer for status updates by @faebr in https://github.com/netbox-community/netbox-operator/pull/496
+* Build(deps): bump the go-dependencies group with 25 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/553
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.48...v0.2.49
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.49)
+
+---
+
+## [v0.2.48] - 2026-04-13
+
+<!-- Release notes generated using configuration in .github/release.yml at 2c4232aeed447f8dcfc3d0dd403a6001212799b3 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump actions/setup-go from 6.3.0 to 6.4.0 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/546
+* Build(deps): bump golang from 1.26.1 to 1.26.2 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/548
+* Build(deps): bump the go-dependencies group across 1 directory with 18 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/549
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.47...v0.2.48
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.48)
+
+---
+
+## [v0.2.47] - 2026-03-30
+
+<!-- Release notes generated using configuration in .github/release.yml at 50fd58dcee65e102a8b430bda173130b5c54e01b -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump github.com/pelletier/go-toml/v2 from 2.2.4 to 2.3.0 in the go-dependencies group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/543
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.46...v0.2.47
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.47)
+
+---
+
+## [v0.2.46] - 2026-03-23
+
+<!-- Release notes generated using configuration in .github/release.yml at c6fec2ae067cf45fe2774dcaa331e5533382906d -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump google.golang.org/grpc from 1.79.2 to 1.79.3 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/539
+* Build(deps): bump the go-dependencies group across 1 directory with 8 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/541
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.45...v0.2.46
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.46)
+
+---
+
+## [v0.2.45] - 2026-03-16
+
+<!-- Release notes generated using configuration in .github/release.yml at 2a201f0da08406f656814825b30a234c84de72a1 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 8 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/536
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.44...v0.2.45
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.45)
+
+---
+
+## [v0.2.44] - 2026-03-12
+
+<!-- Release notes generated using configuration in .github/release.yml at 92f7c58eabbdfe4d9bee72c967d88619e6a8359b -->
+
+## What's Changed
+### Contributions
+* get custom fields by name by @bruelea in https://github.com/netbox-community/netbox-operator/pull/534
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.43...v0.2.44
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.44)
+
+---
+
+## [v0.2.43] - 2026-03-10
+
+<!-- Release notes generated using configuration in .github/release.yml at 9181edead730a9a5a00972d923ef41fdbd39319f -->
+
+## What's Changed
+### Contributions
+* replace getavailable ips method by @bruelea in https://github.com/netbox-community/netbox-operator/pull/532
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.42...v0.2.43
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.43)
+
+---
+
+## [v0.2.42] - 2026-03-09
+
+<!-- Release notes generated using configuration in .github/release.yml at f63a44119a1e44136ec42a4fb9dc4710808f8feb -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 37 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/530
+* Build(deps): bump the github-actions group across 1 directory with 6 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/529
+* Build(deps): bump golang from 1.26.0 to 1.26.1 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/528
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.41...v0.2.42
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.42)
+
+---
+
+## [v0.2.41] - 2026-03-03
+
+<!-- Release notes generated using configuration in .github/release.yml at b64f0b7977db1566ca2777e2904b2bb8b7b4dde6 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 8 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/526
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.40...v0.2.41
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.41)
+
+---
+
+## [v0.2.40] - 2026-02-25
+
+<!-- Release notes generated using configuration in .github/release.yml at 379b522dd51c5405809e202515ccc1ae9ecaad82 -->
+
+## What's Changed
+### Contributions
+* query custom fields by name by @bruelea in https://github.com/netbox-community/netbox-operator/pull/523
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.39...v0.2.40
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.40)
+
+---
+
+## [v0.2.39] - 2026-02-23
+
+<!-- Release notes generated using configuration in .github/release.yml at 3b18fc914aaf43851d9e93dd94b684cb8c99caf4 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump github.com/grpc-ecosystem/grpc-gateway/v2 from 2.27.8 to 2.28.0 in the go-dependencies group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/520
+* Build(deps): bump actions/checkout from 6.0.1 to 6.0.2 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/521
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.38...v0.2.39
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.39)
+
+---
+
+## [v0.2.38] - 2026-02-19
+
+<!-- Release notes generated using configuration in .github/release.yml at bc187116f37a5120248887b0c0b61da73dbd5d83 -->
+
+## What's Changed
+### Contributions
+* Align envtest with go.mod and update envtest Kubernetes version to 1.33 by @jstudler in https://github.com/netbox-community/netbox-operator/pull/518
+* Build(deps): bump the go-dependencies group with 16 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/517
+* Build(deps): bump golang from 1.25.7 to 1.26.0 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/516
+* Compatibility with new NetBox versions by @bruelea in https://github.com/netbox-community/netbox-operator/pull/506
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.37...v0.2.38
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.38)
+
+---
+
+## [v0.2.37] - 2026-02-09
+
+<!-- Release notes generated using configuration in .github/release.yml at 3f64cc41fcf2c2e41be3d551637c3ef9df041e34 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump golang from 1.25.6 to 1.25.7 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/512
+* Build(deps): bump the go-dependencies group with 12 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/513
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.36...v0.2.37
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.37)
+
+---
+
+## [v0.2.36] - 2026-02-02
+
+<!-- Release notes generated using configuration in .github/release.yml at 4b9307191ed2f58c555ba48d582c68305d64376f -->
+
+## What's Changed
+### Contributions
+* fix versions in e2e tests by @bruelea in https://github.com/netbox-community/netbox-operator/pull/508
+* only print app version for v3.7.8 by @bruelea in https://github.com/netbox-community/netbox-operator/pull/509
+* Build(deps): bump the go-dependencies group with 11 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/510
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.35...v0.2.36
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.36)
+
+---
+
+## [v0.2.35] - 2026-01-26
+
+<!-- Release notes generated using configuration in .github/release.yml at 45cfbf1fdfc7873261183537b46cb40974bf28e8 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump golang from 1.25.5 to 1.25.6 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/502
+* Build(deps): bump actions/checkout from 6.0.1 to 6.0.2 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/503
+* Build(deps): bump the go-dependencies group with 6 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/504
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.34...v0.2.35
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.35)
+
+---
+
+## [v0.2.34] - 2026-01-20
+
+<!-- Release notes generated using configuration in .github/release.yml at 26244b1c7c9fceb6447b35aa1d7f35e68c0fb9dd -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 6 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/495
+* Build(deps): bump actions/setup-go from 6.1.0 to 6.2.0 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/494
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.33...v0.2.34
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.34)
+
+---
+
+## [v0.2.33] - 2026-01-12
+
+<!-- Release notes generated using configuration in .github/release.yml at da9dfc88e79b7cc731f16e7a0a3cb0add275dba1 -->
+
+## What's Changed
+### Contributions
+* Build(deps): bump the go-dependencies group with 8 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/490
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.32...v0.2.33
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.33)
+
+---
+
+## [v0.2.32] - 2026-01-05
+
+<!-- Release notes generated using configuration in .github/release.yml at 937b94dff7ff3b33ee7ecc5a63ef993a9eacf277 -->
+
+## What's Changed
+### Contributions
+* Bump the go-dependencies group across 1 directory with 16 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/487
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.31...v0.2.32
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.32)
+
+---
+
+## [v0.2.31] - 2025-12-15
+
+<!-- Release notes generated using configuration in .github/release.yml at 9db56cc87f4a6c0edaa0c693b8992696fa6ccaa5 -->
+
+## What's Changed
+### Contributions
+* Disable NetBox Worker to improve e2e test stability by @jstudler in https://github.com/netbox-community/netbox-operator/pull/482
+* Bump the go-dependencies group across 1 directory with 30 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/484
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.30...v0.2.31
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.31)
+
+---
+
+## [v0.2.30] - 2025-12-08
+
+<!-- Release notes generated using configuration in .github/release.yml at 3db09448b0512c2ede41ca4ac6394c05e3ea072f -->
+
+## What's Changed
+### Contributions
+* bump go to version 1.25.5 by @jstudler in https://github.com/netbox-community/netbox-operator/pull/480
+* Bump golang from 1.25.4 to 1.25.5 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/476
+* Bump the go-dependencies group across 1 directory with 3 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/479
+* Bump the github-actions group with 2 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/477
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.29...v0.2.30
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.30)
+
+---
+
+## [v0.2.29] - 2025-12-02
+
+<!-- Release notes generated using configuration in .github/release.yml at 4996adf24ee01382f7941a78d242c5246aa04c13 -->
+
+## What's Changed
+### Contributions
+* Bump the go-dependencies group with 14 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/473
+* Bump docker/metadata-action from 5.9.0 to 5.10.0 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/474
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.28...v0.2.29
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.29)
+
+---
+
+## [v0.2.28] - 2025-11-24
+
+<!-- Release notes generated using configuration in .github/release.yml at 8863877be98a4658a575de670bba9dafdf0997ed -->
+
+## What's Changed
+### Contributions
+* Bump the github-actions group with 3 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/470
+* Bump the go-dependencies group with 17 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/471
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.27...v0.2.28
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.28)
+
+---
+
+## [v0.2.27] - 2025-11-17
+
+<!-- Release notes generated using configuration in .github/release.yml at 5fbd9b1fa1958d1a80fdcfa63393179b664d1998 -->
+
+## What's Changed
+### Contributions
+* Bump the go-dependencies group with 15 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/468
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.26...v0.2.27
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.27)
+
+---
+
+## [v0.2.26] - 2025-11-10
+
+<!-- Release notes generated using configuration in .github/release.yml at f2832ead2862d0edcd116bdc439559d58007ee1e -->
+
+## What's Changed
+### Contributions
+* Bump the go-dependencies group with 13 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/464
+* Bump the github-actions group with 3 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/465
+* Bump golang from 1.25.3 to 1.25.4 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/466
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.25...v0.2.26
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.26)
+
+---
+
+## [v0.2.25] - 2025-11-03
+
+<!-- Release notes generated using configuration in .github/release.yml at 4066cfaa78234fbb9df184c1e55a36390477b154 -->
+
+## What's Changed
+### Contributions
+* bump go to version 1.25.3 by @alexandernorth in https://github.com/netbox-community/netbox-operator/pull/462
+* use go-version-file instead of go-version by @alexandernorth in https://github.com/netbox-community/netbox-operator/pull/461
+* Bump the go-dependencies group with 6 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/460
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.24...v0.2.25
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.25)
+
+---
+
+## [v0.2.24] - 2025-10-27
+
+<!-- Release notes generated using configuration in .github/release.yml at 986fd3f2ed77287a714e0338ad3024a7c57722ee -->
+
+## What's Changed
+### Contributions
+* Bump the go-dependencies group with 2 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/458
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.23...v0.2.24
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.24)
+
+---
+
+## [v0.2.23] - 2025-10-20
+
+<!-- Release notes generated using configuration in .github/release.yml at e83be74a4df7ca66befe7905618ed25f0c22990a -->
+
+## What's Changed
+### Contributions
+* Bump golang from 1.25.2 to 1.25.3 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/455
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.22...v0.2.23
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.23)
+
+---
+
+## [v0.2.22] - 2025-10-13
+
+<!-- Release notes generated using configuration in .github/release.yml at d1ead7430dbf98f11dd91e8d5f9d074c000d8dec -->
+
+## What's Changed
+### Contributions
+* Adding app label to spec.selector by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/437
+* fix prefixLength regex pattern in prefixclaim by @faebr in https://github.com/netbox-community/netbox-operator/pull/450
+* Bump the go-dependencies group with 11 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/452
+* Bump github/codeql-action from 3 to 4 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/453
+* Bump golang from 1.25.1 to 1.25.2 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/451
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.21...v0.2.22
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.22)
+
+---
+
+## [v0.2.21] - 2025-10-06
+
+<!-- Release notes generated using configuration in .github/release.yml at 2104151728ad29f80c2e737e2609d11b27319aa8 -->
+
+## What's Changed
+### Contributions
+* Fix typo in deploy-netbox.sh by @bruelea in https://github.com/netbox-community/netbox-operator/pull/446
+* Bump the go-dependencies group with 5 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/447
+* chore: bump version to v.0.2.21 and update changelog by @github-actions[bot] in https://github.com/netbox-community/netbox-operator/pull/448
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.20...v0.2.21
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.21)
+
+---
+
+## [v.0.2.21] - 2025-10-06
+
+<!-- Release notes generated using configuration in .github/release.yml at a4295a3579bde8b9bb292eacf9cba66fd143e93b -->
+
+## What's Changed
+### Contributions
+* Fix typo in deploy-netbox.sh by @bruelea in https://github.com/netbox-community/netbox-operator/pull/446
+* Bump the go-dependencies group with 5 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/447
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.20...v.0.2.21
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v.0.2.21)
+
+---
+
+## [v0.2.20] - 2025-09-30
+
+<!-- Release notes generated using configuration in .github/release.yml at c90346acb9bc44e37eb84ab05d6577995ea20830 -->
+
+## What's Changed
+### Contributions
+* Fix: correct image path in manager kustomization by @bruelea in https://github.com/netbox-community/netbox-operator/pull/444
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.19...v0.2.20
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.20)
+
+---
+
+## [v0.2.19] - 2025-09-30
+
+<!-- Release notes generated using configuration in .github/release.yml at 504a0c79ab983cb3c9a2e51b1b3c407ceb35f3e7 -->
+
+## What's Changed
+### Contributions
+* Fix: docker image tag after release by @bruelea in https://github.com/netbox-community/netbox-operator/pull/442
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.18...v0.2.19
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.19)
+
+---
+
+## [v0.2.18] - 2025-09-29
+
+<!-- Release notes generated using configuration in .github/release.yml at 5594054632410970cb4f1709379230fb055fff8d -->
+
+## What's Changed
+### Contributions
+* Fix: run workflows after release pipeline completed by @bruelea in https://github.com/netbox-community/netbox-operator/pull/440
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.17...v0.2.18
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.18)
+
+---
+
+## [v0.2.17] - 2025-09-29
+
+<!-- Release notes generated using configuration in .github/release.yml at d1920ef8225c0cc553fba2a69bf1312cb8430546 -->
+
+## What's Changed
+### Contributions
+* chore: bump version to v0.2.16 and update changelog by @github-actions[bot] in https://github.com/netbox-community/netbox-operator/pull/435
+* start release pipeline on workflow_dispatch by @bruelea in https://github.com/netbox-community/netbox-operator/pull/436
+* Bump the go-dependencies group with 21 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/438
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.16...v0.2.17
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.17)
+
+---
+
+## [v0.2.16] - 2025-09-22
+
+Bump the go-dependencies group with 3 updates (#434)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.2.16 -->
+
+## What's Changed
+### Contributions
+* chore: bump version to v0.2.15 and update changelog by @github-actions[bot] in https://github.com/netbox-community/netbox-operator/pull/433
+* Bump the go-dependencies group with 3 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/434
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.15...v0.2.16
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.16)
+
+---
+
+## [v0.2.15] - 2025-09-15
+
+Bump the go-dependencies group with 19 updates (#432)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.2.15 -->
+
+## What's Changed
+### Contributions
+* chore: bump version to v0.2.14 and update changelog by @github-actions[bot] in https://github.com/netbox-community/netbox-operator/pull/429
+* Bump the go-dependencies group with 7 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/430
+* Bump the go-dependencies group with 19 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/432
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.14...v0.2.15
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.15)
+
+---
+
+## [v0.2.14] - 2025-09-05
+
+Bump golang from 1.25.0 to 1.25.1 (#428)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.2.14 -->
+
+## What's Changed
+### Contributions
+* chore: bump version to v0.2.13 and update changelog by @github-actions[bot] in https://github.com/netbox-community/netbox-operator/pull/425
+* Bump actions/setup-go from 5.5.0 to 6.0.0 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/426
+* Bump the go-dependencies group with 6 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/427
+* Bump golang from 1.25.0 to 1.25.1 by @jstudler in https://github.com/netbox-community/netbox-operator/pull/428
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.13...v0.2.14
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.14)
+
+---
+
+## [v0.2.13] - 2025-09-01
+
+Bump the go-dependencies group with 29 updates (#424)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.2.13 -->
+
+## What's Changed
+### Contributions
+* chore: bump version to v0.2.12 and update changelog by @github-actions[bot] in https://github.com/netbox-community/netbox-operator/pull/421
+* Bump golang from 1.24 to 1.25 by @jstudler in https://github.com/netbox-community/netbox-operator/pull/423
+* Fix release notes to include all contributions by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/422
+* Bump the go-dependencies group with 29 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/424
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.12...v0.2.13
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.13)
+
+---
+
+## [v0.2.12] - 2025-08-26
+
+Bump the go-dependencies group with 10 updates (#419)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.2.12 -->
+
+## What's Changed
+### Contributions
+* Bump leaselocker to v0.3.0 and switch to `ll.UnlockWithRetry()` by @jstudler in https://github.com/netbox-community/netbox-operator/pull/417
+
+### Version Bumps
+* Bump the go-dependencies group with 10 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/419
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.11...v0.2.12
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.12)
+
+---
+
+## [v0.2.11] - 2025-08-18
+
+Bump golang from 1.24.6 to 1.25.0 in the docker group (#412)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.2.11 -->
+
+## What's Changed
+### Contributions
+* put skip ci message at beginning of commit message for clarity/consistency by @jstudler in https://github.com/netbox-community/netbox-operator/pull/409
+* Dependabot Updates by @jstudler in https://github.com/netbox-community/netbox-operator/pull/411
+* Remove self-approval step from release workflow as it's not allowed in gh by @jstudler in https://github.com/netbox-community/netbox-operator/pull/410
+
+### Version Bumps
+* Bump the go-dependencies group with 9 updates by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/414
+* Bump actions/checkout from 4 to 5 in the github-actions group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/413
+* Bump github.com/emicklei/go-restful/v3 from 3.12.2 to 3.13.0 in the go-dependencies group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/416
+* Bump golang from 1.24.6 to 1.25.0 in the docker group by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/412
+
+## New Contributors
+* @github-actions[bot] made their first contribution in https://github.com/netbox-community/netbox-operator/pull/408
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.10...v0.2.11
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.11)
+
+---
+
+## [v0.2.10] - 2025-08-11
+
+fix: update release workflow to create PR instead of pushing directly… (#407)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.2.10 -->
+
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.9...v0.2.10
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.10)
+
+---
+
+## [v0.2.8] - 2025-08-04
+
+## What's Changed
+### Version Bumps
+* Bump github.com/prometheus/client_golang from 1.22.0 to 1.23.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/396
+* Bump go.opentelemetry.io/proto/otlp from 1.7.0 to 1.7.1 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/397
+* Bump github.com/sagikazarmark/locafero from 0.9.0 to 0.10.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/398
+* Bump docker/metadata-action from 5.7.0 to 5.8.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/399
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.7...v0.2.8
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.8)
+
+---
+
+## [v0.2.7] - 2025-07-28
+
+## What's Changed
+* Fix the codespell --ignore-words-list in pre-commit by @jstudler in https://github.com/netbox-community/netbox-operator/pull/388
+* Print logs in json format by @bruelea in https://github.com/netbox-community/netbox-operator/pull/389
+### Version Bumps
+* Bump github.com/cenkalti/backoff/v5 from 5.0.2 to 5.0.3 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/391
+* Bump google.golang.org/grpc from 1.73.0 to 1.74.2 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/392
+* Bump sigs.k8s.io/yaml from 1.5.0 to 1.6.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/393
+* Bump github.com/onsi/gomega from 1.37.0 to 1.38.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/394
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.6...v0.2.7
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.7)
+
+---
+
+## [v0.2.6] - 2025-07-21
+
+## What's Changed
+* Fix iprangeclaim IpRangeName status field yaml/json name by @jstudler in https://github.com/netbox-community/netbox-operator/pull/371
+* Add ownerReference to child resource on update by @jstudler in https://github.com/netbox-community/netbox-operator/pull/369
+* Minor changes to align across controllers by @jstudler in https://github.com/netbox-community/netbox-operator/pull/372
+* Verify prefix length when restoring PrefixClaim from NetBox by @jstudler in https://github.com/netbox-community/netbox-operator/pull/373
+* Change of NetBox Operator IpAddress short name to enhance UX in Kubernetes 1.33+ by @jstudler in https://github.com/netbox-community/netbox-operator/pull/375
+* Add formatting configurations and yamllint action by @jstudler in https://github.com/netbox-community/netbox-operator/pull/376
+* Clean up e2e test files by @jstudler in https://github.com/netbox-community/netbox-operator/pull/382
+
+### Version Bumps
+* Bump github.com/fxamacker/cbor/v2 from 2.8.0 to 2.9.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/381
+* Bump github.com/google/cel-go from 0.25.0 to 0.26.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/380
+* Bump github.com/spf13/pflag from 1.0.6 to 1.0.7 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/379
+* Bump k8s.io/api from 0.33.2 to 0.33.3 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/377
+* Bump k8s.io/client-go from 0.33.2 to 0.33.3 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/378
+* Bump github.com/swisscom/leaselocker from 0.1.0 to 0.2.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/387
+* Bump k8s.io/apiserver from 0.33.2 to 0.33.3 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/386
+* Bump github.com/go-viper/mapstructure/v2 from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/384
+* Bump k8s.io/apiextensions-apiserver from 0.33.2 to 0.33.3 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/383
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.5...v0.2.6
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.6)
+
+---
+
+## [v0.2.5] - 2025-07-14
+
+## What's Changed
+* Add codespell CI job by @jstudler in https://github.com/netbox-community/netbox-operator/pull/368
+
+### Version Bumps
+* Bump go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc from 1.36.0 to 1.37.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/364
+* Bump golang.org/x/term from 0.32.0 to 0.33.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/363
+* Bump go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp from 0.61.0 to 0.62.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/362
+* Bump golang.org/x/net from 0.41.0 to 0.42.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/366
+* Bump golang.org/x/sync from 0.15.0 to 0.16.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/365
+* Bump golang from 1.24.4 to 1.24.5 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/367
+* Bump golang.org/x/tools from 0.34.0 to 0.35.0 by @dependabot[bot] in https://github.com/netbox-community/netbox-operator/pull/370
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.4...v0.2.5
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.5)
+
+---
+
+## [v0.2.4] - 2025-07-07
+
+## What's Changed
+* Cleanup old ReplicaSets after NetBox deployment patch to prevent volume Multi-Attach errors by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/345
+
+### Version Bumps
+* Bump github.com/go-viper/mapstructure/v2 from 2.2.1 to 2.3.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/358
+* Bump github.com/stoewer/go-strcase from 1.3.0 to 1.3.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/357
+* Bump github.com/prometheus/procfs from 0.16.1 to 0.17.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/356
+* Bump sigs.k8s.io/apiserver-network-proxy/konnectivity-client from 0.31.2 to 0.33.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/355
+* Bump github.com/prometheus/common from 0.63.0 to 0.65.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/354
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.3...v0.2.4
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.4)
+
+---
+
+## [v0.2.3] - 2025-06-30
+
+## What's Changed
+* Distinguish if error occurred or if no matching prefix was found by @bruelea in https://github.com/netbox-community/netbox-operator/pull/346
+
+### Version Bumps
+* Bump go.uber.org/mock from 0.5.1 to 0.5.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/340
+* Bump google.golang.org/grpc from 1.72.2 to 1.73.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/342
+* Bump golang.org/x/time from 0.11.0 to 0.12.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/344
+* Bump k8s.io/apiextensions-apiserver from 0.33.1 to 0.33.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/343
+* Bump github.com/grpc-ecosystem/grpc-gateway/v2 from 2.26.3 to 2.27.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/341
+* Bump go.opentelemetry.io/otel/trace from 1.36.0 to 1.37.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/347
+* Bump go.opentelemetry.io/otel/exporters/otlp/otlptrace from 1.36.0 to 1.37.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/348
+* Bump sigs.k8s.io/yaml from 1.4.0 to 1.5.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/349
+* Bump github.com/grpc-ecosystem/grpc-gateway/v2 from 2.27.0 to 2.27.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/350
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.2...v0.2.3
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.3)
+
+---
+
+## [v0.2.2] - 2025-06-23
+
+## What's Changed
+* Configure dependabot to run on mondays at 08:00 in the Europe/Zurich timezone by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/335
+* Fix NetBox NGINX deployment for IPv4-only environments by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/333
+* Add step to e2e tests to clean up resources in the test NetBox instance by @bruelea in https://github.com/netbox-community/netbox-operator/pull/321
+
+### Version Bumps
+* Bump github.com/pelletier/go-toml/v2 from 2.2.3 to 2.2.4 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/332
+* Bump go.opentelemetry.io/proto/otlp from 1.6.0 to 1.7.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/330
+* Bump cel.dev/expr from 0.23.1 to 0.24.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/331
+* Bump go.mongodb.org/mongo-driver from 1.17.3 to 1.17.4 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/328
+* Bump github.com/spf13/cobra from 1.8.1 to 1.9.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/329
+* Bump NetBox e2e test version from 4.1.8 to 4.1.11 by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/242
+* Bump github.com/spf13/cast from 1.7.1 to 1.9.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/338
+* Bump k8s.io/apiserver from 0.33.1 to 0.33.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/337
+* Bump github.com/fxamacker/cbor/v2 from 2.7.0 to 2.8.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/336
+* Bump golang.org/x/tools from 0.31.0 to 0.34.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/334
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.1...v0.2.2
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.2)
+
+---
+
+## [v0.2.1] - 2025-06-16
+
+## What's Changed
+* Allow overriding image registry and Helm chart sources in NetBox deploy script by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/296
+
+### Version Bumps
+* Bump github.com/go-openapi/errors from 0.22.0 to 0.22.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/327
+* Bump github.com/go-logr/logr from 1.4.2 to 1.4.3 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/326
+* Bump github.com/fsnotify/fsnotify from 1.8.0 to 1.9.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/325
+* Bump golang.org/x/sync from 0.14.0 to 0.15.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/324
+* Bump golang from 1.24.3 to 1.24.4 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/322
+* Bump sigs.k8s.io/controller-runtime from 0.20.4 to 0.21.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/323
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.2.0...v0.2.1
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.1)
+
+---
+
+## [v0.2.0] - 2025-06-05
+
+## What's Changed
+* Create codeql.yml workflow by @faebr in https://github.com/netbox-community/netbox-operator/pull/315
+
+### Version Bumps
+* Bump actions/setup-go from 5.4.0 to 5.5.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/308
+* Bump google.golang.org/grpc from 1.71.0 to 1.72.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/307
+* Bump github.com/go-openapi/jsonpointer from 0.21.0 to 0.21.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/306
+* Bump golang.org/x/time from 0.10.0 to 0.11.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/305
+* Bump golang.org/x/oauth2 from 0.28.0 to 0.30.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/304
+* Bump sigs.k8s.io/structured-merge-diff/v4 from 4.6.0 to 4.7.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/303
+* Bump golang.org/x/net from 0.38.0 to 0.40.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/314
+* Bump github.com/grpc-ecosystem/grpc-gateway/v2 from 2.26.1 to 2.26.3 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/313
+* Bump github.com/sagikazarmark/locafero from 0.7.0 to 0.9.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/311
+* Bump k8s.io/apimachinery from 0.33.0 to 0.33.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/310
+* Bump golang from 1.24.2 to 1.24.3 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/309
+* Bump gomodules.xyz/jsonpatch/v2 from 2.4.0 to 2.5.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/320
+* Bump k8s.io/apiextensions-apiserver from 0.33.0 to 0.33.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/316
+* Bump go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp from 0.60.0 to 0.61.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/317
+* Bump go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc from 1.35.0 to 1.36.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/318
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0...v0.2.0
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.2.0)
+
+---
+
+## [v0.1.0] - 2025-05-12
+
+:tada: First non-alpha release of Netbox-Operator :rocket:
+
+## What's Changed
+* Basic operational manual by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/286
+* Adapting deploy-netbox.sh to a vCluster deployment by @pablogarciamiranda in https://github.com/netbox-community/netbox-operator/pull/293
+* Feature/check keys in parent prefix selector by @bruelea in https://github.com/netbox-community/netbox-operator/pull/295
+
+### Version Bumps
+* Bump github.com/onsi/gomega from 1.36.2 to 1.37.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/289
+* Bump go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc from 1.34.0 to 1.35.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/291
+* Bump go.uber.org/mock from 0.5.0 to 0.5.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/288
+* Bump golang.org/x/term from 0.30.0 to 0.31.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/290
+* Bump github.com/go-openapi/swag from 0.23.0 to 0.23.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/292
+* Bump golangci/golangci-lint-action from 7.0.0 to 8.0.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/302
+* Bump github.com/onsi/ginkgo/v2 from 2.23.3 to 2.23.4 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/301
+* Bump github.com/prometheus/common from 0.62.0 to 0.63.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/300
+* Bump go.mongodb.org/mongo-driver from 1.17.2 to 1.17.3 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/299
+* Bump github.com/prometheus/client_model from 0.6.1 to 0.6.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/298
+* Bump github.com/spf13/viper from 1.20.0 to 1.20.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/297
+
+## New Contributors
+* @pablogarciamiranda made their first contribution in https://github.com/netbox-community/netbox-operator/pull/286
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0-alpha.7...v0.1.0
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0)
+
+---
+
+## [v0.1.0-alpha.7] - 2025-04-28
+
+## What's Changed
+
+* Add examples by @jstudler in https://github.com/netbox-community/netbox-operator/pull/264
+* Remove duplicate kind cluster creation by @jstudler in https://github.com/netbox-community/netbox-operator/pull/257
+* Improve CRD documentation by @jstudler in https://github.com/netbox-community/netbox-operator/pull/263
+* Check restoration hash in NetBox before updating resource in NetBox by @bruelea in https://github.com/netbox-community/netbox-operator/pull/285
+* Consolidate Status and Condition reporting by @alexandernorth in https://github.com/netbox-community/netbox-operator/pull/265
+
+### Version Bumps
+* Bump golang from 1.23.6 to 1.24.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/262
+* Bump golangci/golangci-lint-action from 6.5.2 to 7.0.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/278
+* Bump github.com/google/cel-go from 0.22.0 to 0.25.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/252
+* Bump golang.org/x/sync from 0.11.0 to 0.12.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/258
+* Bump go.opentelemetry.io/otel/metric from 1.34.0 to 1.35.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/260
+* Bump golang.org/x/tools from 0.29.0 to 0.31.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/259
+* Bump golangci/golangci-lint-action from 6.3.1 to 6.5.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/271
+* Bump golang.org/x/oauth2 from 0.27.0 to 0.28.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/270
+* Bump k8s.io/component-base from 0.32.2 to 0.32.3 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/269
+* Bump github.com/spf13/afero from 1.12.0 to 1.14.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/268
+* Bump github.com/spf13/viper from 1.19.0 to 1.20.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/267
+* Bump cel.dev/expr from 0.21.2 to 0.22.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/277
+* Bump go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp from 0.59.0 to 0.60.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/276
+* Bump github.com/onsi/ginkgo/v2 from 2.22.2 to 2.23.3 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/275
+* Bump go.opentelemetry.io/otel/exporters/otlp/otlptrace from 1.34.0 to 1.35.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/274
+* Bump actions/setup-go from 5.3.0 to 5.4.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/273
+* Bump golangci/golangci-lint-action from 6.5.1 to 6.5.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/272
+* Bump k8s.io/apiextensions-apiserver from 0.32.2 to 0.32.3 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/280
+* Bump github.com/emicklei/go-restful/v3 from 3.12.1 to 3.12.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/281
+* Bump sigs.k8s.io/controller-runtime from 0.20.2 to 0.20.4 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/282
+* Bump github.com/prometheus/procfs from 0.15.1 to 0.16.1 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/287
+
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0-alpha.6...v0.1.0-alpha.7
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0-alpha.7)
+
+---
+
+## [v0.1.0-alpha.6] - 2025-03-04
+
+Improved testing and dependency upgrades
+## What's Changed
+* Bump google.golang.org/protobuf from 1.36.4 to 1.36.5 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/243
+* Bump golang.org/x/time from 0.9.0 to 0.10.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/247
+* Bump github.com/klauspost/compress from 1.17.11 to 1.18.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/246
+* Bump k8s.io/apiextensions-apiserver from 0.32.1 to 0.32.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/245
+* Bump cel.dev/expr from 0.20.0 to 0.21.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/244
+* Extend e2e chainsaw tests by @jstudler in https://github.com/netbox-community/netbox-operator/pull/249
+* Bump golang.org/x/oauth2 from 0.26.0 to 0.27.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/256
+* Bump github.com/prometheus/client_golang from 1.20.5 to 1.21.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/254
+* Bump sigs.k8s.io/controller-runtime from 0.20.1 to 0.20.2 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/255
+* Bump docker/metadata-action from 5.6.1 to 5.7.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/251
+* Bump github.com/google/go-cmp from 0.6.0 to 0.7.0 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/253
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0-alpha.5...v0.1.0-alpha.6
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0-alpha.6)
+
+---
+
+## [v0.1.0-alpha.5] - 2025-02-20
+
+Improved testing, dependency upgrades and additional metrics
+## What's Changed
+* Add e2e tests for Prefix by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/161
+* Migrate populating local demo data through database.sql to using NetBox API  by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/177
+* Add part-of label to metrics monitor service labelSelector by @bruelea in https://github.com/netbox-community/netbox-operator/pull/204
+* upgraded controller tools and removed rbac-proxy for metrics endpoint by @faebr in https://github.com/netbox-community/netbox-operator/pull/205
+* Make metricsServerOptions configurable and add documentation by @bruelea in https://github.com/netbox-community/netbox-operator/pull/226
+* Add metrics for rest requests towards netbox by @bruelea in https://github.com/netbox-community/netbox-operator/pull/231
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0-alpha.4...v0.1.0-alpha.5
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0-alpha.5)
+
+---
+
+## [v0.1.0-alpha.4] - 2024-12-05
+
+## New Feature
+* Support reservation of IpRanges by @bruelea in https://github.com/netbox-community/netbox-operator/pull/130
+
+## What's Changed
+* Add a prefix with IPv6 addresses to local demo data by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/153
+
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0-alpha.3...v0.1.0-alpha.4
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0-alpha.4)
+
+---
+
+## [v0.1.0-alpha.1] - 2024-11-25
+
+The first public NetBox Operator release!
+
+NetBox Operator was originally developed internally at Swisscom.
+
+This release marks the debut of NetBox Operator as an open-source project, in collaboration with the NetBox Labs.
+
+# Contributor list
+
+## Swisscom
+
+@bruelea, Ashan Senevirathne @ashanvbs, Joel Studler @jstudler, Alexander North @alexandernorth, Chun-Hung (Henry) Tseng @henrybear327, Fabian Schulz @faebr, Hoang Mai @MaIT-HgA, Pablo Garcia Miranda @pablogarciamiranda, Andreas Forsten, Chema De La Sen, Jitendra Sapariya @jitendrs, Sancho Sergio @CapiSSS, Miltiadis Alexis and many more!​
+
+## NetBox Labs
+
+Mark Coleman, Richard Boucher, Kristopher Beevers, Jeff Gehlbach, Nat Morris
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/commits/v0.1.0-alpha.1
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0-alpha.1)
+
+---
+
+## [v0.1.0-alpha.2] - 2024-11-25
+
+## New Feature
+
+- Implement dynamic parent prefix selection https://github.com/netbox-community/netbox-operator/issues/79
+
+## What's Changed
+
+* Dependabot bumps
+* Generate docker images with and without prefixed v for tagged commits by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/76
+* Make unlocking more reliable by @jstudler in https://github.com/netbox-community/netbox-operator/pull/59
+* Add check for tenant existence by @MaIT-HgA in https://github.com/netbox-community/netbox-operator/pull/72
+* Add support for IPv6 by @bruelea in https://github.com/netbox-community/netbox-operator/pull/74
+* Bump github.com/klauspost/compress from 1.17.9 to 1.17.10 by @dependabot in https://github.com/netbox-community/netbox-operator/pull/80
+* Add age column and fix column order by @jstudler in https://github.com/netbox-community/netbox-operator/pull/81
+* Add code of conduct by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/31
+* Fix Finalizers by @MaIT-HgA in https://github.com/netbox-community/netbox-operator/pull/78
+* Add kustomization to top folder by @bruelea in https://github.com/netbox-community/netbox-operator/pull/98
+* Reduce development-related content in README and move them to CONTRIBUTING.md by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/101
+* Fix broken link in README by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/106
+* removed group name from existing crd's by @faebr in https://github.com/netbox-community/netbox-operator/pull/114
+* Update golang version to 1.23.3 by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/92
+* Add license header lint rules by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/60
+* Fix: add logic to update site of prefix in netbox by @bruelea in https://github.com/netbox-community/netbox-operator/pull/107
+* Make site immutable by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/127
+* Implement dynamic selection of parent prefix from a set of custom fields by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/90
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0-alpha.1...v0.1.0-alpha.2
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0-alpha.2)
+
+---
+
+## [v0.1.0-alpha.3] - 2024-11-25
+
+## What's Changed
+* Add support for built-in field `family` in `ParentPrefixSelector` by @henrybear327 in https://github.com/netbox-community/netbox-operator/pull/138
+
+**Full Changelog**: https://github.com/netbox-community/netbox-operator/compare/v0.1.0-alpha.2...v0.1.0-alpha.3
+
+[Full Release](https://github.com/netbox-community/netbox-operator/releases/tag/v0.1.0-alpha.3)
+
+---
+
+
